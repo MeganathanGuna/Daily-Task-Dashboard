@@ -1,0 +1,45 @@
+.dashboard-container {
+  background-color: #000000;
+  color: #ffffff;
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1a1a1a;
+  padding: 1rem 2rem;
+  color: white;
+  border-bottom: 1px solid #333;
+}
+
+.left-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-buttons button {
+  margin-left: 1rem;
+  background-color: #0d6efd;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.nav-buttons button:hover {
+  background-color: #0955c4;
+}
+
+.nav-buttons span {
+  margin-left: 1rem;
+}
+
+.content {
+  padding: 2rem;
+}

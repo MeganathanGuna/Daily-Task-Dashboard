@@ -1,0 +1,235 @@
+/* ===============================
+   Global Dashboard Styles
+   =============================== */
+.dashboard-container {
+  background-color: #000000;
+  color: #ffffff;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 0.85rem;
+}
+
+/* ===============================
+   Navbar
+   =============================== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1a1a1a;
+  padding: 0.8rem 1.5rem;
+  color: white;
+  border-bottom: 1px solid #333;
+  height: 60px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.left-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.nav-buttons button {
+  margin-left: 0.6rem;
+  background-color: #0d6efd;
+  color: white;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  transition: background 0.3s;
+}
+
+.nav-buttons button:hover {
+  background-color: #0955c4;
+}
+
+/* ===============================
+   Layout
+   =============================== */
+.main-container {
+  display: flex;
+  height: calc(100vh - 60px);
+  margin-top: 60px;
+}
+
+.sidebar {
+  width: 240px;
+  border-right: 1px solid #444;
+  background-color: #111;
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.account-list {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 1rem;
+  max-height: calc(100vh - 200px);
+  scrollbar-width: thin;
+}
+
+.sidebar-item {
+  cursor: pointer;
+  border-radius: 6px;
+  padding: 6px 10px;
+  margin: 3px 6px;
+  color: #ddd;
+  transition: background 0.2s;
+  font-size: 0.8rem;
+}
+
+.sidebar-item:hover {
+  background: #333;
+}
+
+.active-account {
+  background: #0d6efd;
+  color: white;
+  font-weight: bold;
+}
+
+/* ===============================
+   Content
+   =============================== */
+.content {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  font-size: 0.85rem;
+}
+
+/* ===============================
+   Project Cards
+   =============================== */
+.project-card-rect {
+  width: 100%;
+  background: #1f1f1f;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
+  border-left: 4px solid #0d6efd;
+  transition: transform 0.2s;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+}
+
+.project-card-rect:hover {
+  transform: translateY(-3px);
+}
+
+/* ✅ Inline row layout */
+.project-row {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+
+.project-row span {
+  margin-right: 1rem;
+  color: #ddd;
+}
+
+.small-text {
+  font-size: 0.8rem;
+}
+
+.small-title {
+  font-size: 1rem;
+}
+
+/* Task List */
+.task-list {
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  background: #0f0f0f;
+  border-radius: 10px;
+  max-height: 180px;
+  overflow-y: auto;
+  font-size: 0.75rem;
+}
+
+/* Scrollbar Styling */
+.account-list::-webkit-scrollbar,
+.task-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.account-list::-webkit-scrollbar-thumb,
+.task-list::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 3px;
+}
+/* Task Table */
+.task-list {
+  margin-top: 0.5rem;
+  background: #0f0f0f;
+  border-radius: 10px;
+  padding: 0.5rem;
+  overflow-x: auto;
+}
+
+.task-list table {
+  font-size: 0.8rem;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.task-list th {
+  background: #1f1f1f;
+  color: #fff;
+  font-weight: 600;
+}
+
+.task-list td {
+  color: #f55612 !important; /* light green */
+}
+/* ===============================
+   Project Header Row (Sticky)
+   =============================== */
+.project-header {
+  display: grid;
+  grid-template-columns: 1.3fr 1.8fr 1fr 1fr 1.2fr 2fr;
+  gap: 10px;
+  padding: 8px 12px;
+  background: #222;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 6px 6px 0 0;
+  font-size: 0.8rem;
+  position: sticky;   /* ✅ Stay fixed */
+  top: 60px;          /* ✅ below navbar */
+  z-index: 5;
+}
+
+/* Project Grid Row */
+.project-row {
+  display: grid;
+  grid-template-columns: 1.3fr 1.8fr 1fr 1fr 1.2fr 2fr;
+  gap: 10px;
+  color: #ddd;
+  font-size: 0.8rem;
+  align-items: start;
+  padding: 8px 12px;
+}
+
+.project-card-rect {
+  background: #1f1f1f;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
+  border-left: 4px solid #0d6efd;
+  transition: transform 0.2s;
+  margin-bottom: 1rem;
+}
+.project-card-rect:hover {
+  transform: translateY(-3px);
+}
+
+
+

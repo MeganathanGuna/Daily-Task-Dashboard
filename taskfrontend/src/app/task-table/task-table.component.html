@@ -1,0 +1,138 @@
+<div class="dashboard-layout">
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h4>Projects</h4>
+    <ul>
+      <li
+        *ngFor="let project of projectNames"
+        [class.active]="selectedProject === project"
+        (click)="filterByProject(project)"
+      >
+        {{ project }}
+      </li>
+      <li [class.active]="!selectedProject" (click)="clearProjectFilter()">
+        Show All
+      </li>
+    </ul>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-section">
+    <!-- Filters -->
+    <div class="filter-container">
+      <!-- ✅ Status Filter -->
+      <div class="filter-box">
+        <strong>Status</strong>
+        <div class="checkbox-list">
+          <label *ngFor="let status of ['Open', 'WIP', 'Completed', 'Closed']">
+            <input
+              type="checkbox"
+              [checked]="statusFilter.includes(status)"
+              (change)="onCheckboxChange('status', status, $event)"
+            />
+            {{ status }}
+          </label>
+        </div>
+      </div>
+
+      <!-- ✅ Assignee Filter -->
+      <div class="filter-box">
+        <strong>Assignee</strong>
+        <div class="checkbox-list">
+          <label *ngFor="let user of roleUsers">
+            <input
+              type="checkbox"
+              [checked]="assigneeFilterList.includes(user)"
+              (change)="onCheckboxChange('assignee', user, $event)"
+            />
+            {{ user }}
+          </label>
+        </div>
+      </div>
+
+      <!-- ✅ Role Filter -->
+      <div class="filter-box">
+        <strong>Role</strong>
+        <div class="checkbox-list">
+          <label *ngFor="let role of roleTypes">
+            <input
+              type="checkbox"
+              [checked]="roleTypeFilterList.includes(role)"
+              (change)="onCheckboxChange('role', role, $event)"
+            />
+            {{ role }}
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- 🔍 Search & Clear -->
+    <div class="search-clear-container">
+      <input
+        type="text"
+        class="search-bar"
+        placeholder="Search anywhere..."
+        [(ngModel)]="globalSearch"
+        (input)="applyFilters()"
+      />
+      <button class="clear-btn" (click)="clearFilters()">Clear Filters</button>
+    </div>
+
+    <!-- Table -->
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover text-center">
+        <thead class="table-dark">
+          <tr>
+            <th *ngIf="showActions">Actions</th>
+            <th>Project Name</th>
+            <th>Task Name</th>
+            <th>Role</th>
+            <th>Status</th>
+            <th>Remarks</th>
+            <th>Assigned Date</th>
+            <th>Due Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let task of tasks" [ngClass]="{ 'table-danger': isExpired(task) }">
+            <td *ngIf="showActions">
+              <!-- Full edit rights -->
+              <button
+                class="btn btn-sm btn-primary me-1"
+                (click)="edit(task)"
+                *ngIf="canEdit(task)"
+              >
+                <i class="bi bi-pencil-square"></i>
+              </button>
+
+              <button
+                class="btn btn-sm btn-danger"
+                (click)="delete(task.id!)"
+                *ngIf="canEdit(task)"
+              >
+                <i class="bi bi-trash"></i>
+              </button>
+
+              <!-- Limited rights -->
+              <button
+                class="btn btn-sm btn-warning me-1"
+                (click)="edit(task)"
+                *ngIf="!canEdit(task) && canEditLimited(task)"
+                title="Can update Status, Remarks, End Date only"
+              >
+                <i class="bi bi-pencil"></i>
+              </button>
+            </td>
+            <td>{{ task.projectName}}</td>
+            <td>{{ task.projectTitle }}</td>
+            <td>{{ task.role }}</td>
+            <td>{{ task.status }}</td>
+            <td>{{ task.remarks }}</td>
+            <td>{{ task.assignedDate }}</td>
+            <td>{{ task.endDate }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

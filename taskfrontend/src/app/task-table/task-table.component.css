@@ -1,0 +1,133 @@
+/* General Table Styles */
+html, table th, table td {
+  vertical-align: middle;
+}
+
+.table-danger {
+  background-color: #2d765c !important;
+  color: #4d17cb !important;
+}
+
+/* Expired Task Row */
+.table.table-bordered.table-hover tbody tr.table-expired td {
+  background-color: #3a2b2b !important;  /* dark muted red-brown */
+  color: #f0d0d0 !important;             /* soft light rose text */
+}
+
+/* Keep style on hover */
+.table.table-bordered.table-hover tbody tr.table-expired:hover td {
+  background-color: #4d3636 !important;
+  color: #fff !important;
+}
+
+/* Dashboard Layout */
+.dashboard-layout {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  background: #1a1a1a;
+  padding: 20px;
+  border-right: 1px solid #333;
+  color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  overflow-y: auto;
+}
+
+.sidebar h4 {
+  margin-bottom: 15px;
+  color: #00e676;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  padding: 10px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+
+.sidebar li:hover {
+  background: #333;
+}
+
+.sidebar li.active {
+  background: #00e676;
+  color: #000;
+  font-weight: bold;
+}
+
+/* Main Section */
+.main-section {
+  flex: 1;
+  margin-left: 220px; /* Sidebar width */
+  padding: 20px;
+  overflow: auto;
+  background: #000;
+  color: #fff;
+}
+
+/* Filters Layout */
+.filter-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Status | Assignee | Role */
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.filter-box {
+  background: #222;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.filter-box strong {
+  display: block;
+  margin-bottom: 8px;
+  color: #00e676;
+}
+
+.checkbox-list label {
+  display: block;
+  margin-bottom: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* Search & Clear */
+.search-clear-container {
+  display: flex;
+  justify-content: flex-end; /* ✅ Right aligned */
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.search-bar {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 220px;
+  color: #000;
+}
+
+.clear-btn {
+  padding: 6px 12px;
+  background: #ffc107;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
